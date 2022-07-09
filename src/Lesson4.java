@@ -7,204 +7,193 @@ import java.util.Random;
 
 public class Lesson4 {
     public static void main(String[] args) {
-        /////////////////////////////////Задание 1/////////////////////////////////
-        Scanner scanner = new Scanner(System.in);
-        Random rand = new Random();
-  /*         int counter = scanner.nextInt();
-        int[] numbers = new int[counter];
+                              ///////////////////Задание1/////////////////////////
+        System.out.println("                Задание 1");
+      Scanner scanner = new Scanner(System.in);
+      Random random = new Random();
 
+        int vvodChisla = scanner.nextInt();
 
-        for(int i=0; i<numbers.length; i++){
-            numbers[i]=rand.nextInt(10);
-            System.out.print(numbers[i]);
+        int[] massiv = new int[vvodChisla];
+        int counter = 0;
+        int summ=0;
+
+        for(int i =0; i<massiv.length; i++){
+            massiv[i] = random.nextInt(0,10);
         }
-int count = 0;
-int count2 =0;
-int count3= 0;
-int count4= 0;
-int count5= 0;
+
+        for (int x:massiv){
+            System.out.print( x + " ");
+            if(x>8){                       //Проверка чисел больше8
+                counter= counter+1;
+            }
+        }
+        System.out.println();
         System.out.println();
 
-        for(int each:numbers){      //цикл вытаскивает количество чисел более 8
-            if(each>8){
-                count = count + 1;
-            } else {
-                continue;
+        System.out.println("Длинна массива - "+ massiv.length);           //Вывод длинны массива
+
+        System.out.println("Количестве чисел больше 8 - " +counter);      //Вывод на печать количеста чисел больше 8
+        counter=0;                                                        //Обнуление счетчика
+
+
+
+        for(int x:massiv){
+            if(x==1){                      // Проверка чисел равных 1
+                counter =counter+1;
             }
         }
 
-        for (int each:numbers){          //цикл вытаскивает количество чисел равных1
-            if(each==1){
-                count2 = count2 + 1;
-            } else {
-                continue;
+        System.out.println("Количестве чисел равных 1 - " +counter);      //Вывод количества чисел равных 1
+        counter=0;                                                        //Обнуление счетчика
+
+        for (int x:massiv){
+            if(x%2==0){                     //Проверка четных чисел
+                counter=counter+1;
             }
         }
 
-        for(int each:numbers){      //количество четных чисел
-            if(each%2 ==0){
-                count3=count3 + 1;
-            }else {
-                continue;
+        System.out.println("Количество четных чисел  - " +counter);      //Вывод количества четных чисел
+        counter=0;                                                        //Обнуление счетчика
+
+        for (int x:massiv){
+            if(x%2==1){                     //Проверка нечетных чисел
+                counter=counter+1;
+            }
+        }
+        System.out.println("Количество нечетных чисел  - " +counter);      //Вывод количества нечетных чисел
+        counter=0;                                                        //Обнуление счетчика
+
+        for (int x:massiv){
+            summ = x+summ;
+        }
+        System.out.println("Сумма элементов массива  - " +summ);      //Сумма массива
+        summ=0;                                                        //Обнуление счетчика
+        vvodChisla =0;
+        System.out.println();
+
+
+                                    //////////////////Задание2/////////////////////////
+        System.out.println("                Задание 2");
+        vvodChisla=scanner.nextInt();
+        massiv =new int[vvodChisla];
+        int max =10000;
+        int min =0;
+        for (int i=0; i<massiv.length; i++){
+            massiv[i]=random.nextInt(min,max);
+        }
+
+        for(int x:massiv){
+            System.out.print(x+ " ");  //Вывод всего массива
+        }
+        System.out.println();
+
+        for(int x:massiv){
+            if(x>summ){             //Проверка наибольшего эллемента массива
+                summ=x;
+            }
+        }
+        System.out.println();
+        System.out.println("Наибольший элемент массива- "+ summ); //Вывод наибольше эллмента массива
+        summ =0;
+
+
+        for(int x:massiv){
+            if(summ==0) {
+               summ= max;            //Я сделал так на случай если рэндом будет не от 0 до 10000, а предположим до 1000000,если сканером вбивать максимальный и минимальный рэндом
+            }
+            if(x<summ ){             //Проверка наименьшего эллемента массива
+                summ=x;
+            }
+        }
+        System.out.println("Наименьший элемент массива- "+ summ); //Вывод наименьший эллмента массива
+        summ =0;
+
+        for(int x:massiv){
+
+            if(x%10==0 ){             //Проверка наименьшего эллемента массива
+                counter=counter+1;
+                summ=x+summ;
+            }
+        }
+        System.out.println("Количество эллементов  массива оканчивающихся на 0- "+ counter); //
+        System.out.println("Сумма эллементов  массива оканчивающихся на 0- "+ summ); //
+
+        System.out.println();
+        System.out.println("                Задание 3");
+
+        int vvodChisla1 = scanner.nextInt();
+        int vvodChisla2 = scanner.nextInt();
+        int[][] massiv2 = new int[vvodChisla1][vvodChisla2];
+        int summTotal=0;
+        summ = 0;
+
+        for(int i=0; i<massiv2.length; i++){
+            for(int j=0; j< massiv2[i].length; j++){                //заполнение массива
+                massiv2[i][j] = random.nextInt(0,50);
             }
         }
 
-        for(int each:numbers){         //количество нечетных чисел
-            if(each%2 ==1){
-                count4=count4 + 1;
-            }else {
-                continue;
+        for (int i=0; i<massiv2.length; i++){
+            for(int j=0; j<massiv2[i].length;j++){
+                System.out.print(massiv2[i][j] + " ");   //вывод на экран массива
             }
-        }
-
-        for(int each:numbers){         //Сумма всех элементов массива
-
-                count5=each+count5;
-
-        }
-
-
-
-        System.out.println(" Количество чисел больше восьми: " + count);
-        System.out.println(" Количество чисел равных одному: " + count2);
-        System.out.println(" Количество четных чисел: " + count3);
-        System.out.println(" Количество нечетных чисел: " + count4);
-        System.out.println(" Сумма всех элементов массива: " + count5);
-*/
-//////////////////////////////Задание 2//////////////////////////////
-  /*      int z = scanner.nextInt();
-        int[] massiv = new int[z];
-        for (int i = 0; i < massiv.length; i++) {
-            massiv[i] = rand.nextInt(0, 10000);
-            System.out.println(massiv[i]);
-        }
-
-        int max = 0;
-        int min = 10000;
-        for (int d : massiv) {
-            if (max < d) {
-                max = d;
-            }
-        }
-
-        for (int d : massiv) {
-            if (min > d) {
-                min = d;
-            }
-        }
-////////////////Задание 3/////////////////////////
-        int cheti =0;
-        int[] massiv0= new int[massiv.length];
-
-        for (int i= 0; i<massiv.length; i++){
-            if(massiv[i]%10==0){
-                massiv0[i]=massiv[i];
-                System.out.println(massiv0[i] + "Проверка массива");
-                cheti= cheti+1;
-            }
-        }
-
-
-///////////////////Задание 4////////////////////////////////
-        int cheti2 =0;
-        int[] massiv1= new int[massiv.length];
-
-        for (int i= 0; i<massiv.length; i++){
-            if(massiv[i]%10==0){
-                massiv1[i]=massiv[i];
-                //System.out.println(massiv0[i] + "Проверка массива");
-                cheti2= massiv1[i]+cheti2;
-            }
-        }
-  /////////////////////////////////////////////////////////////
-        System.out.println("Cумму элементов массива, оканчивающихся на 0 -" +cheti2);
-        System.out.println("Количество элементов массива, оканчивающихся на 0 -" +cheti);
-        System.out.println("Самое большое число " + max);
-        System.out.println("Самое меньшее число " + min);
-
-*/
-        //////////////////Задание 3/////////////////////////////
-   /*     Scanner scanner2 = new Scanner(System.in);
-        int varb = scanner2.nextInt();
-        int varb2 = scanner2.nextInt();
-        int[][] massiv3 = new int[varb][varb2];
-        int[] massiv4= new int[massiv3.length];
-
-        int xv = 0;
-        int xn = 0;
-        int stroka=0;
-        int maxIndex=0;
-        for (int i = 0; i<massiv3.length; i++){
-            massiv3[i][0] = rand.nextInt(0,50); //тут происходит создание и присвоение значений строкам массива
-
-            for(int j =0; j<massiv3[i].length; j++){
-                massiv3[i][j] = rand.nextInt(0,50); //тут создание и присвоение столбцам массива
-                System.out.print(massiv3[i][j] +" ");
-                               }
             System.out.println();
         }
-        System.out.println();
 
-        for(int i =0; i< massiv3.length; i++){
-            for (int j =0; j<massiv3[i].length; j++){     //цикл который выводит индекс строки в которой максимальная сумма
-                xv = massiv3[i][j]+xv; // тут высчитывает сумма строки
-
-            }
-
-            System.out.print(xv);
-            System.out.println();
-
-            if(xn<xv){
-                maxIndex = i;
-                xn=xv;
-                            }
-
-
-            xv =0;
-
-        }
-        System.out.println();
-        System.out.println("Самая большая строка "+ xn);
-        System.out.println("индекс строки "+ maxIndex);
-*/
-
-
-        //////////////////////Задание4////////////////////////
-        Scanner scann = new Scanner(System.in);
-        int qwe = scann.nextInt();
-        int qwe2 = qwe-2;
-        int[] massiv5 = new int[qwe];
-        int summa;
-        int summa2 =0;
-        int summa3 =0;
-        int summa5 =0;
-        for (int i=0; i<massiv5.length; i++){
-            massiv5[i] = rand.nextInt(0,10000);
-
-            System.out.println(massiv5[i]);
-
-
-        }
-        System.out.println();
-        System.out.println();
-
-
-        //теперь воспользовавшись заполненным массивом
-        for(int i=0; i<massiv5.length; i++) {
-            if(i<qwe2){ //Вот это выражение мне не по душе как то, если при включении сканера задать не 100 а к примеру 90 программа сыпется, из за данного выражения
-                summa = massiv5[i]+massiv5[i+1]+massiv5[i+2];
-                if(summa>summa3){
-                    summa3=summa;
-                    summa2= i;
+        for (int i=0; i<massiv2.length; i++){
+            for(int j=0; j<massiv2[i].length;j++){
+                summ = massiv2[i][j] + summ;
                 }
+                 System.out.print(summ);
+                 System.out.println();
 
-            }else break;
+                         if(summTotal<summ){
+                      counter=i;
+                      summTotal=summ;
+                       }
+                summ=0;
+             }
+        System.out.println("Самая большая строка "+ summTotal);
+        System.out.println("Индекс строки "+ counter);
 
-            System.out.println(summa);
+
+        //////////////////////////Задание 4///////////////////////
+        System.out.println();
+        System.out.println("              Задание 4");
+        vvodChisla=scanner.nextInt();
+        int summ2 = 0;
+        int sumMax=0;
+        counter=0;
+        int[] massiv3 =new int[vvodChisla];
+        int minus =vvodChisla-2;
+        for(int i=0; i< massiv3.length; i++ ){
+            massiv3[i] =random.nextInt(0,10000);     //Присвоение массиву значений
+        }
+
+        for (int x:massiv3) {
+            System.out.print(x + " ");      //Вывод массива в строку
 
         }
-        System.out.println(summa2);
+        System.out.print(" Значения массива");
 
+        System.out.println();
 
+        for(int i=0; i< massiv3.length; i++ ){
+            if(i<minus){
+             summ2=massiv3[i]+massiv3[i+1]+massiv3[i+2];   //Цикл суммирующий значения
+            System.out.print(summ2 +" ");                   //И выводящий суммы трех чисел
+            if(summ2>sumMax){
+                sumMax=summ2;
+                counter=i;
+            }
+            }
+
+        }
+        System.out.print(" Значения сумм массива");
+        System.out.println();
+        System.out.println();
+        System.out.println(sumMax + " -Максимальная сумма");
+        System.out.println(counter + " -Индекс первого элемента");
     }
 }
