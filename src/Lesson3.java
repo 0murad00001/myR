@@ -11,7 +11,7 @@ public class Lesson3 {
            System.out.println();
            System.out.println("Введите наименование города");
            String city = scanner.nextLine();
-
+           System.out.println();
            if(city.equals("Stop")) {
                System.out.println("Программа завершила работу");
                break;

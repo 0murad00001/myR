@@ -178,7 +178,7 @@ public class Lesson4 {
         System.out.print(" Значения массива");
 
         System.out.println();
-
+        System.out.println();
         for(int i=0; i< massiv3.length; i++ ){
             if(i<minus){
              summ2=massiv3[i]+massiv3[i+1]+massiv3[i+2];   //Цикл суммирующий значения

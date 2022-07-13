@@ -47,7 +47,7 @@ if(x>=1 && x<=4){
 
             counter++;
         }
-
+        System.out.println();
 ////////////////Задание 4////////////////////
        System.out.println("Задание 4");
         Scanner scanner3 = new Scanner(System.in);
