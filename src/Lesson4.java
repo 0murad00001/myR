@@ -13,7 +13,7 @@ public class Lesson4 {
         System.out.println("fff");
       Scanner scanner = new Scanner(System.in);
       Random random = new Random();
-
+        System.out.println();
         int vvodChisla = scanner.nextInt();
 
         int[] massiv = new int[vvodChisla];
