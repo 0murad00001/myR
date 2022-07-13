@@ -9,9 +9,11 @@ public class Lesson4 {
     public static void main(String[] args) {
                               ///////////////////Задание1/////////////////////////
         System.out.println("                Задание 1");
+        System.out.println();
+        System.out.println("fff");
       Scanner scanner = new Scanner(System.in);
       Random random = new Random();
-
+        System.out.println();
         int vvodChisla = scanner.nextInt();
 
         int[] massiv = new int[vvodChisla];
@@ -178,7 +180,7 @@ public class Lesson4 {
         System.out.print(" Значения массива");
 
         System.out.println();
-
+        System.out.println();
         for(int i=0; i< massiv3.length; i++ ){
             if(i<minus){
              summ2=massiv3[i]+massiv3[i+1]+massiv3[i+2];   //Цикл суммирующий значения

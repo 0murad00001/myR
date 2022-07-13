@@ -1,3 +1,5 @@
+package src;
+
 public class Lesson1 {
 public static void main(String[] args){
    //1
@@ -14,6 +16,7 @@ public static void main(String[] args){
         System.out.print("JAVA ");
     }
     System.out.println(" - Это цикл FOR");
+    System.out.println();
 
     //3
     for(int z = 0; z<10; ++z){
