@@ -9,6 +9,8 @@ public class Lesson4 {
     public static void main(String[] args) {
                               ///////////////////Задание1/////////////////////////
         System.out.println("                Задание 1");
+        System.out.println();
+        System.out.println("fff");
       Scanner scanner = new Scanner(System.in);
       Random random = new Random();
 
