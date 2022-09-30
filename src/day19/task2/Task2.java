@@ -1,65 +1,78 @@
 package src.day19.task2;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
+import java.util.Scanner;
+
 
 public class Task2 {
-    static int counter;
-    public static void main(String[] args){
-        HashMap<Integer, Point> hashMap= new HashMap<>();
-        Scanner scanner2 = new Scanner(System.in);
+    //1
+    static Map<Integer, Point> map = new HashMap<>();
+    static Scanner scanner2 = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
         String separator = File.separator;
-        String path = "C:" +separator+"Lessons"+ separator+"untitled"+separator +"src"+ separator+"resources"+ separator+"taxi_cars.txt";
-        File file = new File(path);
+
+        File file = new File("C:" + separator + "taxi_cars.txt");
         try {
             Scanner scanner = new Scanner(file);
-
-            while(scanner.hasNext()){
-                String line = scanner.nextLine();
-                String[] massiv = line.split(" ");
+            while (scanner.hasNextLine()) {
+                String word = scanner.nextLine();
+                String[] massiv = word.split(" ");
                 int key = Integer.parseInt(massiv[0]);
                 int value1 = Integer.parseInt(massiv[1]);
                 int value2 = Integer.parseInt(massiv[2]);
-                hashMap.put(key, new Point(value1, value2));
-            }
-            int f=0;
-            int s=0;
-            System.out.println("Введите x1");
-            int x1 =scanner2.nextInt();
-            System.out.println("Введите y1");
-            int y1 =scanner2.nextInt();
-            System.out.println("Введите x2");
-            int x2 =scanner2.nextInt();
-            System.out.println("Введите y2");
-            int y2 =scanner2.nextInt();
-
-            for(Map.Entry<Integer, Point> x: hashMap.entrySet()){
-                if(x.getValue().x==x1 && x.getValue().y==y1){
-                    f =x.getKey();
-                    counter=++f;
-                    System.out.println(counter + " Начало");
-                }
-
-                if(x.getValue().x!=x2 && x.getValue().y!=y2){
-                    counter++;
-
-
-                } else if(x.getValue().x==x2 && x.getValue().y==y2){
-                    s =x.getKey()-1;
-                    System.out.println(s + " Конец");
-                    System.out.println((s+1)-f + " Общее количество внутри квадрата");
-                    break;
-                }
+                map.put(key, new Point(value1, value2));
             }
 
-
-            for (int i=f; i<=s; i++){
-                System.out.println(i + " Внутри квадрата");
-            }
-
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
         }
+
+        int counter = 0; //переменная -счетчик для подсчета общего количества машин в квадрате
+        int x = FirstCoordinate(); //вытаскиваем первую машину и присваем
+        int y = SecondCoordinate(); //последнюю машину
+
+        for (Map.Entry<Integer, Point> entry : map.entrySet()) {
+            if (entry.getKey() > x && entry.getKey() < y) {
+                counter++;
+                System.out.println("Внутри квадрата машина № " + entry.getKey()); //выводим машины которые внутри квадрата
+            }
+        }
+        System.out.println("Общее количество машин в квадрате = " + counter); //выводим общее колчество машин
+
     }
+
+    public static int FirstCoordinate() { //Задает координаты первой машины и возвращает ее id
+        System.out.println("Введите x1");
+        int x1 = scanner2.nextInt();
+        System.out.println("Введите y1");
+        int y1 = scanner2.nextInt();
+
+        for (Map.Entry<Integer, Point> entry : map.entrySet()) {
+            if (entry.getValue().getX() == x1 && entry.getValue().getY() == y1) {
+                int firstCar = entry.getKey();
+                return firstCar;
+            }
+        }
+        return 0;
+    }
+
+    public static int SecondCoordinate() { //Задает координаты второй машины и возвращает ее id
+        System.out.println("Введите x2");
+        int x2 = scanner2.nextInt();
+        System.out.println("Введите y2");
+        int y2 = scanner2.nextInt();
+
+        for (Map.Entry<Integer, Point> entry : map.entrySet()) {
+            if (entry.getValue().getX() == x2 && entry.getValue().getY() == y2) {
+                int lastCar = entry.getKey();
+                return lastCar;
+            }
+        }
+        return 0;
+    }
+
 }
